@@ -54,8 +54,8 @@ classdef Drone
         SOURCES_SEARCHED;           % What sources have been searched.
 
         % Variables used for ZZC:
-        CUSTOM_ROLE;                % The role for the Custom algorithm.
-        CUSTOM_USE;                 % Determine if a drone can search.
+        ZZC_ROLE;                % The role for the Custom algorithm.
+        ZZC_USE;                 % Determine if a drone can search.
         
         PATH_POINTS;                % The corners of a drone's pattern.
         CURRENT_POINT;              % The point the drone needs to head to.
@@ -133,8 +133,8 @@ classdef Drone
                     obj(i).ONLOOKER_STANDBY = true;
 
                     % ZZC Variables:
-                    obj(i).CUSTOM_ROLE = "SELECT";
-                    obj(i).CUSTOM_USE = false;
+                    obj(i).ZZC_ROLE = "SELECT";
+                    obj(i).ZZC_USE = false;
                     
                     obj(i).PATH_POINTS = [];                   
                     obj(i).CURRENT_POINT = 1;
@@ -148,4 +148,5 @@ classdef Drone
 
         end
     end
+
 end
