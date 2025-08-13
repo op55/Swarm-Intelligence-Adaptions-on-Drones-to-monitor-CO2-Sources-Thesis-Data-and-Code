@@ -45,8 +45,11 @@ function[drone] = Battery_Deplete(drone, dimensions, ratio, lowBattery)
 
             % Resetting the drone's disabled time:
             drone.DISABLED_STEPS = 0;
+
+            % Will remember to continue scanning once battery is refilled (used by M-PSO and M-FA):
+            if (drone.M_ROLE == "SCAN"); drone.NEW_SEARCH = false; end
             
-            % Will remember to continue scanning once battery is refilled:
+            % Will remember to continue scanning once battery is refilled (ZZC exclusive line):
             if (drone.ZZC_ROLE == "SCAN"); drone.NEW_SEARCH = false; end
     
             % Getting the drone to return to base:
@@ -60,4 +63,5 @@ function[drone] = Battery_Deplete(drone, dimensions, ratio, lowBattery)
 
     % Incrementing the drone's total distance:
     drone.TOTAL_DISTANCE = drone.TOTAL_DISTANCE + (tMove - 1);
+
 end
